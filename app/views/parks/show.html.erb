@@ -11,9 +11,15 @@
 </p>
 
 <p>
+  <strong>Rangers working:</strong></br>
+  <% Park.find(@park).rangers.each do | ranger | %>
+    <%= ranger.name %></br>
+  <% end %>
+</p>
+
+<p>
   <%= image_tag @park.picture %>
 </p>
 
 <%= link_to 'Edit', edit_park_path(@park) %> |
-<%= link_to 'Destroy', @park, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', parks_path %>
+<%= link_to 'Destroy', @park, method: :delete, data: { confirm: 'Are you sure?' } %>

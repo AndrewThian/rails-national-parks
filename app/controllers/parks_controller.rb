@@ -3,7 +3,8 @@ class ParksController < ApplicationController
 
   # GET /parks
   def index
-    @parks = Park.all
+    # .search is a class method defined in model!
+    @parks = Park.search(params[:search])
   end
 
   # GET /parks/1

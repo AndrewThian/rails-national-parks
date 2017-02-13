@@ -10,6 +10,16 @@
 
   <body>
     <h1><%= link_to 'National Parks', root_path %></h1>
+
+    <nav>
+      <ul>
+        <li><%= link_to 'Parks', parks_path %></li>
+        <li><%= link_to 'New Parks', new_park_path %></li>
+        <li><%= link_to 'Rangers', rangers_path %></li>
+        <li><%= link_to 'New Rangers', new_ranger_path %></li>
+      </ul>
+    </nav>
+
     <hr>
     <%= yield %>
   </body>

@@ -1,0 +1,28 @@
+<%= form_for(ranger) do |f| %>
+  <% if ranger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ranger.errors.count, "error") %> prohibited this ranger from being saved:</h2>
+
+      <ul>
+      <% ranger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+
+    <%= f.label "Parks" %></br>
+    <%= collection_check_boxes(:ranger, :park_ids, Park.all, :id, :name) %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

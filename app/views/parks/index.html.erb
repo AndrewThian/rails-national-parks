@@ -1,11 +1,16 @@
 <h1>Parks</h1>
 
+<%= form_tag parks_path, method: 'GET' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +20,10 @@
       <tr>
         <td><%= park.name %></td>
         <td><%= park.description %></td>
-        <td><%= park.picture %></td>
-        <td><%= link_to 'Show', park %></td>
+        <td><%= image_tag park.picture %></td>
+        <td><%= link_to 'Show', park_path(id: park.id) %></td>
         <td><%= link_to 'Edit', edit_park_path(park) %></td>
-        <td><%= link_to 'Destroy', park, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', park_path(id: park.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +31,5 @@
 
 <br>
 
+<!-- path wrong -->
 <%= link_to 'New Park', new_park_path %>

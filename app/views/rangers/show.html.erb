@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= @ranger.name %>
+</p>
+
+<p>
+  <strong>Parks working for:</strong></br>
+  <% Ranger.find(@ranger).parks.each do | park | %>
+    <%= park.name %></br>
+  <% end %>
+</p>
